@@ -1,5 +1,5 @@
 import "./style.css";
-import Navbar from "./components/navbar/navbar";
+import Navbar from "./components/navbar/navbar.ts";
 
 class Main {
   constructor() {
