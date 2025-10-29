@@ -1,9 +1,11 @@
 import "./style.css";
+import Navbar from "./components/navbar/navbar";
 
-const main = class {
+class Main {
   constructor() {
-    const app = document.querySelector<HTMLDivElement>("#app");
+    const app = document.querySelector<HTMLDivElement>("#app")!;
+    new Navbar(app);
   }
-};
+}
 
-new main();
+new Main();
