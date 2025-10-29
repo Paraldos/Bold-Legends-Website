@@ -1,4 +1,5 @@
 import "./style.css";
+import "./variables.css";
 import Navbar from "./components/navbar/navbar.ts";
 
 class Main {

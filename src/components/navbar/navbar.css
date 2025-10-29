@@ -1,5 +1,23 @@
 .navbar {
-  list-style: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--bg-navbar);
+
   display: flex;
-  gap: 50px;
+
+  li {
+    height: 100%;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    border: 2px solid transparent;
+    border-top: none;
+  }
+
+  li:hover {
+    border-color: var(--button-border-hover);
+  }
 }

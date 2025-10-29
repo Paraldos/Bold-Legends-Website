@@ -1,0 +1,14 @@
+:root {
+  --primary: #0c2b4e;
+  --secondary: #1a3d64;
+  --tertiary: #1d546c;
+  --quaternary: #f4f4f4;
+
+  /* UI Tokens */
+  --text-primary: var(--quaternary);
+  --bg-default: var(--secondary);
+  --bg-navbar: var(--tertiary);
+  --button-border-hover: var(--quaternary);
+
+  --nav-height: 60px;
+}
