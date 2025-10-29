@@ -1,12 +1,17 @@
-.navbar {
+nav {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: var(--nav-height);
+  width: 100%;
   background-color: var(--bg-navbar);
-
   display: flex;
+  justify-content: center;
+
+  ul {
+    display: flex;
+    height: 100%;
+  }
 
   li {
     height: 100%;
