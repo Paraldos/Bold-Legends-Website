@@ -1,8 +1,8 @@
 :root {
-  --one: #37353e;
-  --two: #44444e;
-  --three: #715a5a;
-  --four: #d3dad9;
+  --one: #333446;
+  --two: #7f8caa;
+  --three: #7f8caa;
+  --four: #eaefef;
 
   /* UI Tokens */
   --text-primary: var(--four);
