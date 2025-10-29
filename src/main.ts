@@ -1,9 +1,9 @@
 import "./style.css";
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = ``;
-
 const main = class {
-  constructor() {}
+  constructor() {
+    const app = document.querySelector<HTMLDivElement>("#app");
+  }
 };
 
 new main();
