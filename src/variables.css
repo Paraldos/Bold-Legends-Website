@@ -1,14 +1,15 @@
 :root {
-  --primary: #0c2b4e;
-  --secondary: #1a3d64;
-  --tertiary: #1d546c;
-  --quaternary: #f4f4f4;
+  --one: #37353e;
+  --two: #44444e;
+  --three: #715a5a;
+  --four: #d3dad9;
 
   /* UI Tokens */
-  --text-primary: var(--quaternary);
-  --bg-default: var(--secondary);
-  --bg-navbar: var(--tertiary);
-  --button-border-hover: var(--quaternary);
+  --text-primary: var(--four);
+  --bg-default: var(--one);
+  --bg-navbar: var(--two);
+  --button__active: var(--four);
+  --button__active-text: var(--one);
 
   --nav-height: 60px;
 }

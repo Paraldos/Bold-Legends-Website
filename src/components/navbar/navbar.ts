@@ -5,7 +5,7 @@ export default class Navbar {
     console.log(root);
     root.innerHTML = `
 		<ul class="navbar">
-			<li>Home</li>
+			<li class="selected">Home</li>
 			<li>Downloads</li>
 			<li>Tools</li>
 		</ul>
