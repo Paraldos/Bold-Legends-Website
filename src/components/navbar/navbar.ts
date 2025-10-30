@@ -2,7 +2,6 @@ import "./navbar.css";
 
 export default class Navbar {
   constructor(root: HTMLElement) {
-    console.log(root);
     root.innerHTML = `
 		<nav>
 			<ul class="navbar">
