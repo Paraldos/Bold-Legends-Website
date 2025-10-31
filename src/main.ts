@@ -5,9 +5,8 @@ import SectorTool from "./components/sectorTool/sectorTool.ts";
 
 class Main {
   constructor() {
-    const app = document.querySelector<HTMLDivElement>("#app")!;
-    new Navbar(app);
-    new SectorTool(app);
+    new Navbar();
+    new SectorTool();
   }
 }
 

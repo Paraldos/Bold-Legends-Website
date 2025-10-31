@@ -1,15 +1,28 @@
 import "./sectorTool.css";
 
 export default class SectorTool {
-  constructor(root: HTMLElement) {
-    this.initHtml(root);
+  private contentContainer!: HTMLElement;
+
+  constructor() {
+    const contentContainer = document.querySelector(
+      ".contentContainer"
+    ) as HTMLElement;
+    this.initHtml();
+
+    document.body.addEventListener("click", () => {
+      console.log("click");
+    });
   }
 
-  initHtml(root: HTMLElement) {
-    root.innerHTML += `
-		<div>
-			<h1>Tools</h1>
-		</div>
-	`;
+  resetContentContainer() {
+    if (!this.contentContainer) {
+      console.error('Error: "Content Container" not found');
+      return;
+    }
+    this.contentContainer.innerHTML = "";
+  }
+
+  initHtml() {
+    this.contentContainer.innerHTML += `<div class="SectorTool" />`;
   }
 }
