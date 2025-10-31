@@ -1,28 +1,26 @@
 import "./sectorTool.css";
+import ContentComponent from "../contentComponent/contentComponent.ts";
 
-export default class SectorTool {
-  private contentContainer!: HTMLElement;
-
+export default class SectorTool extends ContentComponent {
   constructor() {
-    const contentContainer = document.querySelector(
-      ".contentContainer"
-    ) as HTMLElement;
+    super();
     this.initHtml();
-
-    document.body.addEventListener("click", () => {
-      console.log("click");
-    });
+    this.setupNavbarListener();
   }
 
-  resetContentContainer() {
-    if (!this.contentContainer) {
-      console.error('Error: "Content Container" not found');
-      return;
-    }
-    this.contentContainer.innerHTML = "";
+  private initHtml(): void {
+    this.contentContainer.innerHTML += `
+      <div class="SectorTool">
+        <h2>Sector Tool</h2>
+      </div>
+    `;
   }
 
-  initHtml() {
-    this.contentContainer.innerHTML += `<div class="SectorTool" />`;
+  private setupNavbarListener(): void {
+    document.addEventListener("navbarBtnClicked", ((
+      e: CustomEvent<{ selection: string }>
+    ) => {
+      console.log("Navbar selection:", e.detail.selection);
+    }) as EventListener);
   }
 }
