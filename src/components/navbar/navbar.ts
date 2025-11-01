@@ -28,11 +28,10 @@ export default class Navbar {
       link.addEventListener("click", () => {
         this.resetNavbarLinks();
         link.classList.add("selected");
-        this.emitNavbarBtnEvent(link.innerText);
+        this.emitNavbarBtnEvent((link as HTMLElement).innerText);
       });
     });
   }
-
   private emitNavbarBtnEvent(selectedLink: String) {
     const navElementSelected = new CustomEvent("navbarBtnClicked", {
       detail: { selection: selectedLink },

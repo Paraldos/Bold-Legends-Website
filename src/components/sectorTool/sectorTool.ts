@@ -5,6 +5,7 @@ export default class SectorTool extends ContentComponent {
   constructor() {
     super();
     this.setupNavbarListener("Tools");
+    this.initHtml();
   }
 
   initHtml(): void {
