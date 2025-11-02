@@ -1,3 +1,5 @@
+import "./contentComponent.css";
+
 export default class ContentComponent {
   public contentContainer!: HTMLElement;
 

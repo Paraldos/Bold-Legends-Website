@@ -1,0 +1,20 @@
+.sectorTool {
+  min-height: 100%;
+
+  .sectorTools__map {
+    max-height: 100%;
+    aspect-ratio: 1;
+    margin: auto;
+    background-color: grey;
+  }
+
+  .sectorTools__hex {
+    clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+    background-color: red;
+    margin: 2px;
+  }
+
+  .sectorTools__hex:hover {
+    background-color: green;
+  }
+}

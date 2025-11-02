@@ -17,7 +17,7 @@ export default class Navbar {
 		<ul class="navbar">
 			<li class="navbar__home navbar__btn">Home</li>
 			<li class="navbar__downloads navbar__btn">Downloads</li>
-			<li class="navbar__tools navbar__btn selected">Tools</li>
+			<li class="navbar__sectortools navbar__btn selected">Sector Tools</li>
 		</ul>
 	`;
   }
