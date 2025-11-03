@@ -15,7 +15,7 @@ export default class SectorTool extends ContentComponent {
     this.initHtml();
   }
 
-  private initHtml(): void {
+  initHtml(): void {
     this.contentContainer.innerHTML += `<div class="sectorTool"></div>`;
     this.initGrid();
     this.addHexes();
