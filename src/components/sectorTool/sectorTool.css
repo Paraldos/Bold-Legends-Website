@@ -10,11 +10,12 @@
 
   .sectorTools__hex {
     clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
-    background-color: red;
+    background-color: rgba(0, 0, 0, 0.075);
     margin: 2px;
+    text-align: center;
   }
 
   .sectorTools__hex:hover {
-    background-color: green;
+    background-color: black;
   }
 }
