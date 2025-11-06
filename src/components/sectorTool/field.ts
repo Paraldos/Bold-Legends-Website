@@ -1,18 +1,13 @@
-import World from "./world";
+import World from "./world.ts";
 import { shuffleArray } from "../../utils/utils.ts";
 
-export default class Star {
-  public static generateStar(starTitle?: string) {
-    const title = starTitle ?? "Nova";
-
+export default class Field {
+  public static generateStar(targetTitle = "Nova", targetType = "empty") {
     return {
       id: crypto.randomUUID(),
-      index: 0,
-      row: 0,
-      column: 0,
-      type: "Stern",
-      title,
-      worlds: Star.generateWorlds(),
+      type: targetType,
+      title: targetTitle,
+      worlds: Field.generateWorlds(),
     };
   }
 
