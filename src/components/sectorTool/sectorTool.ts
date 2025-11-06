@@ -1,5 +1,6 @@
 import "./sectorTool.css";
 import ContentComponent from "../contentComponent/contentComponent.ts";
+import Sector from "./sector.ts";
 
 export default class SectorTool extends ContentComponent {
   constructor() {
@@ -10,16 +11,9 @@ export default class SectorTool extends ContentComponent {
   }
 }
 
-class Sector {
-  sector = [];
-  constructor() {}
-}
-
 class Map {
+  sector = new Sector();
   sectorTool = document.querySelector(".sectorTool") as HTMLElement | null;
-  columns = 6;
-  rows = 8;
-  amountOfHexes = this.columns * this.rows;
   map;
 
   constructor() {
@@ -35,16 +29,18 @@ class Map {
     const map = document.createElement("div");
     map.classList.add("sectorTools__map");
     map.style.display = "grid";
-    map.style.gridTemplateColumns = `repeat(${this.columns * 2 + 1}, 1fr)`;
-    map.style.gridTemplateRows = `repeat(${this.rows * 3 + 1}, 1fr)`;
+    map.style.gridTemplateColumns = `repeat(${
+      this.sector.columns * 2 + 1
+    }, 1fr)`;
+    map.style.gridTemplateRows = `repeat(${this.sector.rows * 3 + 1}, 1fr)`;
     this.sectorTool.appendChild(map);
   }
 
   private addHexes(): void {
     if (!this.map) return;
-    for (let i = 0; i < this.amountOfHexes; i++) {
-      const col = i % this.columns;
-      const row = Math.floor(i / this.columns);
+    for (let i = 0; i < this.sector.amountOfHexes; i++) {
+      const col = i % this.sector.columns;
+      const row = Math.floor(i / this.sector.columns);
 
       const hex = document.createElement("div");
       hex.className = "sectorTools__hex";
