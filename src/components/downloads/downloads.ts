@@ -6,7 +6,7 @@ export default class Downloads extends ContentComponent {
     this.setupNavbarListener("Downloads");
   }
 
-  initHtml(): void {
+  fill(): void {
     this.contentContainer.innerHTML += `
 	  <div class="SectorTool">
 		<h2>Downloads</h2>

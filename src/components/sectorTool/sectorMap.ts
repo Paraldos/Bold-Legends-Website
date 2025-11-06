@@ -1,0 +1,53 @@
+import SVG from "../../utils/svg.ts";
+import Sector from "./sector.ts";
+
+export default class SectorMap {
+  sectorTool = document.querySelector(".sectorTool") as HTMLElement | null;
+  map: HTMLElement | null;
+  sector: Sector;
+
+  constructor(sector: Sector) {
+    this.sector = sector;
+    this.map = this.initMap();
+    this.addHexes();
+  }
+
+  private initMap(): HTMLElement | null {
+    if (!this.sectorTool) return null;
+    const map = document.createElement("div");
+    map.classList.add("sectorTools__map");
+    map.style.aspectRatio = `
+		${this.sector.columns * 1.5} / ${this.sector.rows}`;
+    map.style.display = "grid";
+    map.style.gridTemplateColumns = `repeat(${
+      this.sector.columns * 2 + 1
+    }, 1fr)`;
+    map.style.gridTemplateRows = `repeat(${this.sector.rows * 3 + 1}, 1fr)`;
+    this.sectorTool.appendChild(map);
+    return map;
+  }
+
+  private addHexes(): void {
+    if (!this.map) return;
+    for (let i = 0; i < this.sector.amountOfHexes; i++) {
+      const col = i % this.sector.columns;
+      const row = Math.floor(i / this.sector.columns);
+
+      const hex = document.createElement("div");
+      hex.className = "sectorTools__hex";
+      hex.innerHTML = `
+	  	<p>${i}</p>
+		${this.sector.stars[i] ? SVG.star() : ""}
+		`;
+
+      const isOddRow = row % 2 === 1;
+      const colStart = col * 2 + (isOddRow ? 1 : 0) + 1;
+      const rowStart = row * 3 + 1;
+
+      hex.style.gridColumn = `${colStart} / span 2`;
+      hex.style.gridRow = `${rowStart} / span 4`;
+
+      this.map.appendChild(hex);
+    }
+  }
+}

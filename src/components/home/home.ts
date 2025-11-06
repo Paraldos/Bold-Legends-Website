@@ -6,7 +6,7 @@ export default class SectorTool extends ContentComponent {
     this.setupNavbarListener("Home");
   }
 
-  initHtml(): void {
+  fill(): void {
     this.contentContainer.innerHTML += `
       <div class="SectorTool">
         <h2>Home</h2>
