@@ -7,6 +7,7 @@ export default class Sector {
   rows = 10;
   amountOfHexes = this.columns * this.rows;
   amountOfStars = 10;
+  amountOfBlackHoles = 3;
   fields = new Array(this.amountOfHexes).fill(null);
 
   constructor() {
@@ -18,7 +19,10 @@ export default class Sector {
     const listOfStellarNames = shuffleArray(stellarNames);
     for (let i = 0; i < this.amountOfHexes; i++) {
       const fieldTitle = listOfStellarNames[i];
-      const fieldType = i <= this.amountOfStars ? "star" : "empty";
+      let fieldType = "empty";
+      if (i <= this.amountOfStars + this.amountOfBlackHoles)
+        fieldType = "blackHole";
+      if (i <= this.amountOfStars) fieldType = "star";
       this.fields[i] = Field.generateStar(fieldTitle, fieldType);
     }
     this.fields = shuffleArray(this.fields);
