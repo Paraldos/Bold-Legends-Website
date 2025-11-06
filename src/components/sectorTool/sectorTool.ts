@@ -26,6 +26,8 @@ class Map {
     if (!this.sectorTool) return null;
     const map = document.createElement("div");
     map.classList.add("sectorTools__map");
+    map.style.aspectRatio = `
+		${this.sector.columns * 1.5} / ${this.sector.rows}`;
     map.style.display = "grid";
     map.style.gridTemplateColumns = `repeat(${
       this.sector.columns * 2 + 1
