@@ -14,18 +14,15 @@ export default class SectorTool extends ContentComponent {
 class Map {
   sector = new Sector();
   sectorTool = document.querySelector(".sectorTool") as HTMLElement | null;
-  map;
+  map: HTMLElement | null;
 
   constructor() {
-    this.initGrid();
-    this.map = document.querySelector(
-      ".sectorTools__map"
-    ) as HTMLElement | null;
+    this.map = this.initMap();
     this.addHexes();
   }
 
-  private initGrid(): void {
-    if (!this.sectorTool) return;
+  private initMap(): HTMLElement | null {
+    if (!this.sectorTool) return null;
     const map = document.createElement("div");
     map.classList.add("sectorTools__map");
     map.style.display = "grid";
@@ -34,6 +31,7 @@ class Map {
     }, 1fr)`;
     map.style.gridTemplateRows = `repeat(${this.sector.rows * 3 + 1}, 1fr)`;
     this.sectorTool.appendChild(map);
+    return map;
   }
 
   private addHexes(): void {

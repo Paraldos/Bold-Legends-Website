@@ -10,7 +10,6 @@ export default class Sector {
 
   constructor() {
     this.fillStarsArray();
-    console.log(this.stars);
   }
 
   private fillStarsArray() {
