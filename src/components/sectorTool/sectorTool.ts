@@ -1,6 +1,7 @@
 import "./sectorTool.css";
 import ContentComponent from "../contentComponent/contentComponent.ts";
 import Sector from "./sector.ts";
+import SVG from "../../utils/svg.ts";
 
 export default class SectorTool extends ContentComponent {
   constructor() {
@@ -42,7 +43,10 @@ class Map {
 
       const hex = document.createElement("div");
       hex.className = "sectorTools__hex";
-      hex.textContent = `${i + 1}`;
+      hex.innerHTML = `
+	  	<p>${i}</p>
+		${this.sector.stars[i] ? SVG.star() : ""}
+		`;
 
       const isOddRow = row % 2 === 1;
       const colStart = col * 2 + (isOddRow ? 1 : 0) + 1;

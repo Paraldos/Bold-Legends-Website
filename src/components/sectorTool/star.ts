@@ -1,5 +1,5 @@
 import World from "./world";
-import { shuffleArray } from "../../utils.ts";
+import { shuffleArray } from "../../utils/utils.ts";
 
 export default class Star {
   public static generateStar(starTitle?: string) {

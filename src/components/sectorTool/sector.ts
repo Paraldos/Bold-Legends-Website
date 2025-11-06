@@ -1,5 +1,5 @@
 import Star from "./star.ts";
-import { shuffleArray } from "../../utils.ts";
+import { shuffleArray } from "../../utils/utils.ts";
 
 export default class Sector {
   columns = 6;

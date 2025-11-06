@@ -26,6 +26,15 @@ body {
   min-width: 100%;
 }
 
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+p {
+  margin: 0;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -42,14 +51,13 @@ a:hover {
   color: #535bf2;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
 #app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+svg {
+  stroke: var(--text-primary);
 }
