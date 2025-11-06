@@ -2,45 +2,46 @@ import "./sectorTool.css";
 import ContentComponent from "../contentComponent/contentComponent.ts";
 
 export default class SectorTool extends ContentComponent {
-  columns;
-  rows;
-  amountOfHexes;
-
   constructor() {
     super();
-    this.columns = 6;
-    this.rows = 8;
-    this.amountOfHexes = this.columns * this.rows;
     this.setupNavbarListener("Sector Tools");
-    this.initHtml();
+    this.contentContainer.innerHTML = `<div class="sectorTool"></div>`;
+    new Map();
   }
+}
 
-  initHtml(): void {
-    this.contentContainer.innerHTML += `<div class="sectorTool"></div>`;
+class Sector {
+  sector = [];
+  constructor() {}
+}
+
+class Map {
+  sectorTool = document.querySelector(".sectorTool") as HTMLElement | null;
+  columns = 6;
+  rows = 8;
+  amountOfHexes = this.columns * this.rows;
+  map;
+
+  constructor() {
     this.initGrid();
+    this.map = document.querySelector(
+      ".sectorTools__map"
+    ) as HTMLElement | null;
     this.addHexes();
   }
 
   private initGrid(): void {
-    const sectorTool = document.querySelector(
-      ".sectorTool"
-    ) as HTMLElement | null;
-    if (!sectorTool) return;
-
+    if (!this.sectorTool) return;
     const map = document.createElement("div");
     map.classList.add("sectorTools__map");
     map.style.display = "grid";
     map.style.gridTemplateColumns = `repeat(${this.columns * 2 + 1}, 1fr)`;
     map.style.gridTemplateRows = `repeat(${this.rows * 3 + 1}, 1fr)`;
-    sectorTool.appendChild(map);
+    this.sectorTool.appendChild(map);
   }
 
-  addHexes() {
-    const map = document.querySelector(
-      ".sectorTools__map"
-    ) as HTMLElement | null;
-    if (!map) return;
-
+  private addHexes(): void {
+    if (!this.map) return;
     for (let i = 0; i < this.amountOfHexes; i++) {
       const col = i % this.columns;
       const row = Math.floor(i / this.columns);
@@ -56,7 +57,7 @@ export default class SectorTool extends ContentComponent {
       hex.style.gridColumn = `${colStart} / span 2`;
       hex.style.gridRow = `${rowStart} / span 4`;
 
-      map.appendChild(hex);
+      this.map.appendChild(hex);
     }
   }
 }
