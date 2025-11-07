@@ -51,6 +51,8 @@ export default class MapLegend {
 
   private getWorld(world: World | null, hex: Hex, worldIndex: number): string {
     if (world === null) return "";
-    return `<li>${hex.title} ${toRoman(worldIndex + 1)}</li>`;
+    const romanNumber = toRoman(worldIndex + 1);
+    const tags = world.tags.join(", ");
+    return `<li>${hex.title} ${romanNumber} (${tags})</li>`;
   }
 }
