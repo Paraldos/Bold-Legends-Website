@@ -4,8 +4,8 @@ import { shuffleArray } from "../../../utils/utils.ts";
 import { stellarNames } from "./sectorData.ts";
 
 export default class Sector {
-  columns = 8;
-  rows = 10;
+  columns = 9;
+  rows = 7;
   amountOfHexes = this.columns * this.rows;
   amountOfStars = 10;
   amountOfBlackHoles = 3;

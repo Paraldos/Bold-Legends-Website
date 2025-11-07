@@ -1,7 +1,7 @@
 .sectorTools__legend {
   display: grid;
   gap: 15px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .sectorTools__legendHex {
@@ -11,6 +11,7 @@
   p {
     border-bottom: 3px solid var(--text-primary);
     padding: 0 5px;
+    font-size: 1.3rem;
   }
 
   ul {
