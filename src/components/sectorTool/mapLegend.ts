@@ -1,6 +1,6 @@
-import Sector from "./sector.ts";
-import Hex from "./hex.ts";
-import type World from "./world.ts";
+import Sector from "./sector/sector.ts";
+import Hex from "./sector/hex.ts";
+import type World from "./sector/world.ts";
 import { toRoman, idToLabel } from "../../utils/utils.ts";
 
 export default class MapLegend {

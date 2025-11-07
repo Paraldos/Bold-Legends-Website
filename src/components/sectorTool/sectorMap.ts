@@ -1,6 +1,6 @@
 import SVG from "../../utils/svg.ts";
-import Sector from "./sector.ts";
-import type { HexData } from "./hex.ts";
+import Sector from "./sector/sector.ts";
+import Hex from "./sector/hex.ts";
 
 export default class SectorMap {
   sectorTool = document.querySelector(".sectorTool") as HTMLElement | null;
@@ -33,7 +33,7 @@ export default class SectorMap {
     this.sector.hexes.forEach((hex, index) => this.addHex(hex, index));
   }
 
-  private addHex(hex: HexData, index: number): void {
+  private addHex(hex: Hex, index: number): void {
     if (!this.map) return;
 
     const col = index % this.sector.columns;

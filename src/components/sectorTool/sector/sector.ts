@@ -1,6 +1,6 @@
 import Hex from "./hex.ts";
 import type { HexType } from "./hex.ts";
-import { shuffleArray } from "../../utils/utils.ts";
+import { shuffleArray } from "../../../utils/utils.ts";
 import { stellarNames } from "./sectorData.ts";
 
 export default class Sector {

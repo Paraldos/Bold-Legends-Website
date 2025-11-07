@@ -1,6 +1,6 @@
 import "./sectorTool.css";
 import ContentComponent from "../contentComponent/contentComponent.ts";
-import Sector from "./sector.ts";
+import Sector from "./sector/sector.ts";
 import SectorMap from "./sectorMap.ts";
 import MapLegend from "./mapLegend.ts";
 

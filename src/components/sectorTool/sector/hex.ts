@@ -1,5 +1,5 @@
 import World from "./world.ts";
-import { shuffleArray } from "../../utils/utils.ts";
+import { shuffleArray } from "../../../utils/utils.ts";
 
 export type HexType = "empty" | "star" | "blackHole";
 
