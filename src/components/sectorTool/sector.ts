@@ -1,5 +1,5 @@
 import Hex from "./hex.ts";
-import type { HexData, HexType } from "./hex.ts";
+import type { HexType } from "./hex.ts";
 import { shuffleArray } from "../../utils/utils.ts";
 import { stellarNames } from "./sectorData.ts";
 
@@ -9,7 +9,7 @@ export default class Sector {
   amountOfHexes = this.columns * this.rows;
   amountOfStars = 10;
   amountOfBlackHoles = 3;
-  hexes: HexData[] = [];
+  hexes: Hex[] = [];
 
   constructor() {
     this.fillHexesArray();
@@ -29,7 +29,7 @@ export default class Sector {
         fieldType = "star";
       }
 
-      this.hexes[i] = Hex.generateHex(fieldTitle, fieldType);
+      this.hexes[i] = new Hex(fieldTitle, fieldType);
     }
 
     this.hexes = shuffleArray(this.hexes);
