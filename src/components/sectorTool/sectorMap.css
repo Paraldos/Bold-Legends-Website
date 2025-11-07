@@ -1,6 +1,6 @@
 .sectorTools__mapHex {
   clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: rgba(0, 0, 0, 0.025);
   margin: 2px;
   text-align: center;
   position: relative;
@@ -20,6 +20,6 @@
   }
 
   &:hover {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.075);
   }
 }

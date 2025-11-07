@@ -7,10 +7,9 @@
 .sectorTools__legendHex {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
 
   p {
-    border-bottom: 1px solid black;
+    border-bottom: 3px solid var(--text-primary);
     padding: 0 5px;
   }
 
@@ -20,4 +19,8 @@
     margin-left: 25px;
     min-height: 1em;
   }
+}
+
+.sectorTools__legendHex--empty {
+  opacity: 0.4;
 }

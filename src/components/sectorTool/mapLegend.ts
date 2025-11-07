@@ -18,15 +18,19 @@ export default class MapLegend {
   private initMapLegend(): HTMLElement | null {
     if (!this.sectorTool) return null;
     const legend = document.createElement("div");
-    legend.classList.add("sectorTools__legend");
+    legend.classList = "sectorTools__legend";
     this.sectorTool.appendChild(legend);
     return legend;
   }
 
   private addHexes(): void {
     this.sector.hexes.forEach((hex, index) => {
+      const id = "sectorTools__legendHex__" + index;
+      let classes = ["sectorTools__legendHex"];
+      if (hex.type === "empty") classes.push("sectorTools__legendHex--empty");
+
       this.legend!.innerHTML += `
-		<div id="${"sectorTools__legendHex__" + index}" class="sectorTools__legendHex">
+		<div id="${id}" class="${classes.join(" ")}">
 			${this.getHexHeader(hex, index)}
 			${this.getHexBody(hex, index)}
 		</div>

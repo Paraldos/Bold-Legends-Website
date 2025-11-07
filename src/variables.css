@@ -1,15 +1,15 @@
 :root {
-  --one: #333446;
-  --two: #7f8caa;
-  --three: #7f8caa;
-  --four: #eaefef;
+  --one: #000;
+  --two: #ffffff;
 
   /* UI Tokens */
-  --text-primary: var(--four);
-  --bg-default: var(--one);
+  --text-primary: var(--one);
+  --bg-default: var(--two);
   --bg-navbar: var(--two);
-  --button__active: var(--four);
-  --button__active-text: var(--one);
+  --button__active: var(--one);
+  --button__active-text: var(--two);
 
   --nav-height: 60px;
+  --nav-margin: 20px;
+  --nav-total: calc(var(--nav-height) + var(--nav-margin));
 }
