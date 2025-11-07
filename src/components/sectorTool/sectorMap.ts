@@ -30,9 +30,7 @@ export default class SectorMap {
 
   private addHexes(): void {
     if (!this.map) return;
-    this.sector.hexes.forEach((hex, index) => {
-      this.addHex(hex, index);
-    });
+    this.sector.hexes.forEach((hex, index) => this.addHex(hex, index));
   }
 
   private addHex(hex: HexData, index: number): void {
