@@ -137,7 +137,7 @@ export const sectorTags = [
   "Wichtige Warproute",
 ];
 
-export const stellarNames = [
+export const stellarNames: String[] = [
   "Altair",
   "Antares",
   "Arcturus",

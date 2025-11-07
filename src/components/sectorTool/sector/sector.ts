@@ -4,23 +4,25 @@ import { shuffleArray } from "../../../utils/utils.ts";
 import { stellarNames } from "./sectorData.ts";
 
 export default class Sector {
-  columns = 9;
-  rows = 7;
+  columns = 7;
+  rows = 9;
   amountOfHexes = this.columns * this.rows;
-  amountOfStars = 10;
+  amountOfStars = 13;
   amountOfBlackHoles = 3;
   hexes: Hex[] = [];
+  title: String | undefined;
 
   constructor() {
-    this.fillHexesArray();
+    let localListOfStellarNames = shuffleArray(stellarNames);
+    this.title = localListOfStellarNames.pop();
+    this.fillHexesArray(localListOfStellarNames);
   }
 
-  private fillHexesArray(): void {
+  private fillHexesArray(listOfStellarNames: String[]): void {
     this.hexes = new Array(this.amountOfHexes).fill(null);
-    const listOfStellarNames = shuffleArray(stellarNames);
 
     for (let i = 0; i < this.amountOfHexes; i++) {
-      const fieldTitle = listOfStellarNames[i];
+      const fieldTitle = listOfStellarNames.pop();
       let fieldType: HexType = "empty";
       if (i < this.amountOfBlackHoles) {
         fieldType = "blackHole";

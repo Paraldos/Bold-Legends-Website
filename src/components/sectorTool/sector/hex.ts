@@ -6,10 +6,10 @@ export type HexType = "empty" | "star" | "blackHole";
 export default class Hex {
   public id: string;
   public type: HexType;
-  public title: string;
+  public title: String | undefined;
   public worlds: (World | null)[];
 
-  constructor(title: string, type: HexType) {
+  constructor(title: String | undefined, type: HexType) {
     this.id = crypto.randomUUID();
     this.type = type;
     this.title = title;
