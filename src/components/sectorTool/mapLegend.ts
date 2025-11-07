@@ -20,8 +20,12 @@ export default class MapLegend {
 
   addHexes(): void {
     if (!this.legend) return;
-    this.sector.hexes.forEach((hex) => {
-      console.log(hex);
+    this.sector.hexes.forEach((hex, index) => {
+      this.addHex(hex, index);
     });
+  }
+
+  addHex(hex: Object, index: number): void {
+    // console.log(hex, index);
   }
 }
