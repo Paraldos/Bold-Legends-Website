@@ -25,7 +25,7 @@ export default class Hex {
 
   private static generateWorlds(): (World | null)[] {
     const numberOfWorlds = Math.round(Math.random() * 3);
-    const worlds = new Array<World | null>(9).fill(null);
+    const worlds = new Array(9).fill(null);
     for (let i = 0; i < numberOfWorlds; i++) {
       worlds[i] = World.generateWorld();
     }

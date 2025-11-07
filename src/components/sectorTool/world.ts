@@ -1,9 +1,13 @@
 export default class World {
+  public id: string;
+  public tags: string[];
+
+  constructor() {
+    this.id = crypto.randomUUID();
+    this.tags = [];
+  }
+
   public static generateWorld() {
-    return {
-      id: crypto.randomUUID(),
-      title: "",
-      tags: [],
-    };
+    return new World();
   }
 }

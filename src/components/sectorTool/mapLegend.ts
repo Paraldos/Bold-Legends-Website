@@ -1,5 +1,6 @@
 import Sector from "./sector.ts";
 import type { HexData } from "./hex.ts";
+import type World from "./world.ts";
 
 export default class MapLegend {
   sectorTool = document.querySelector(".sectorTool") as HTMLElement | null;
@@ -47,11 +48,19 @@ export default class MapLegend {
     return div.outerHTML;
   }
 
-  private getHexBody(hex: HexData, index: number): string {
+  private getHexBody(hex: HexData, _index: number): string {
     const div = document.createElement("div");
+    if (hex.type == "empty") return div.outerHTML;
     hex.worlds.forEach((world) => {
-      console.log(world);
+      if (world == null) return;
+      this.getWorld(world);
     });
     return div.outerHTML;
+  }
+
+  private getWorld(world: World) {
+    const div = document.createElement("div");
+    console.log(world.tags);
+    return div;
   }
 }
