@@ -1,4 +1,4 @@
-import Field from "./field.ts";
+import Hex from "./hex.ts";
 import { shuffleArray } from "../../utils/utils.ts";
 import { stellarNames } from "./sectorData.ts";
 
@@ -8,14 +8,14 @@ export default class Sector {
   amountOfHexes = this.columns * this.rows;
   amountOfStars = 10;
   amountOfBlackHoles = 3;
-  fields = new Array(this.amountOfHexes).fill(null);
+  hexes = new Array(this.amountOfHexes).fill(null);
 
   constructor() {
     this.fillStarsArray();
   }
 
   private fillStarsArray() {
-    this.fields = new Array(this.amountOfHexes).fill(null);
+    this.hexes = new Array(this.amountOfHexes).fill(null);
     const listOfStellarNames = shuffleArray(stellarNames);
     for (let i = 0; i < this.amountOfHexes; i++) {
       const fieldTitle = listOfStellarNames[i];
@@ -23,8 +23,8 @@ export default class Sector {
       if (i <= this.amountOfStars + this.amountOfBlackHoles)
         fieldType = "blackHole";
       if (i <= this.amountOfStars) fieldType = "star";
-      this.fields[i] = Field.generateStar(fieldTitle, fieldType);
+      this.hexes[i] = Hex.generateStar(fieldTitle, fieldType);
     }
-    this.fields = shuffleArray(this.fields);
+    this.hexes = shuffleArray(this.hexes);
   }
 }

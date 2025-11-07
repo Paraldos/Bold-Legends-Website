@@ -37,8 +37,8 @@ export default class SectorMap {
       hex.className = "sectorTools__hex";
       hex.innerHTML = `
 	  	<p>${i}</p>
-		${this.sector.fields[i].type == "star" ? SVG.star() : ""}
-		${this.sector.fields[i].type == "blackHole" ? SVG.blackHole() : ""}
+		${this.sector.hexes[i].type == "star" ? SVG.star() : ""}
+		${this.sector.hexes[i].type == "blackHole" ? SVG.blackHole() : ""}
 		`;
 
       const isOddRow = row % 2 === 1;
