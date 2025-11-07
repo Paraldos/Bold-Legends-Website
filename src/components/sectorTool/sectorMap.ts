@@ -42,16 +42,25 @@ export default class SectorMap {
     const colStart = col * 2 + (isOddRow ? 1 : 0) + 1;
     const rowStart = row * 3 + 1;
 
-    const newDiv = document.createElement("div");
-    newDiv.className = "sectorTools__mapHex";
-    newDiv.innerHTML = `
+    const div = document.createElement("div");
+    div.className = "sectorTools__mapHex";
+    div.innerHTML = `
 		<p>${index}</p>
 		${hex.type === "star" ? SVG.star() : ""}
 		${hex.type === "blackHole" ? SVG.blackHole() : ""}
 	`;
-    newDiv.style.gridColumn = `${colStart} / span 2`;
-    newDiv.style.gridRow = `${rowStart} / span 4`;
+    div.style.gridColumn = `${colStart} / span 2`;
+    div.style.gridRow = `${rowStart} / span 4`;
 
-    this.map.appendChild(newDiv);
+    div.addEventListener("click", () => {
+      const target = document.getElementById(
+        "sectorTools__legendHex__" + index
+      );
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+
+    this.map.appendChild(div);
   }
 }

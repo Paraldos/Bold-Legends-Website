@@ -25,7 +25,7 @@ export default class MapLegend {
   private addHexes(): void {
     this.sector.hexes.forEach((hex, index) => {
       this.legend!.innerHTML += `
-		<div class="sectorTools__legendHex">
+		<div id="${"sectorTools__legendHex__" + index}" class="sectorTools__legendHex">
 			${this.getHexHeader(hex, index)}
 			${this.getHexBody(hex, index)}
 		</div>
