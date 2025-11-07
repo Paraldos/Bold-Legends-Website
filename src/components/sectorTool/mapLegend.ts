@@ -19,6 +19,7 @@ export default class MapLegend {
     if (!this.sectorTool) return null;
     const legend = document.createElement("div");
     legend.classList = "sectorTools__legend";
+    legend.innerHTML = `<h1 class="sectorTools__legendTitle" >Sector: ${this.sector.title}</h1>`;
     this.sectorTool.appendChild(legend);
     return legend;
   }
