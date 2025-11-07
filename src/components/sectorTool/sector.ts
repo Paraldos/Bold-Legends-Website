@@ -11,10 +11,10 @@ export default class Sector {
   hexes = new Array(this.amountOfHexes).fill(null);
 
   constructor() {
-    this.fillStarsArray();
+    this.fillHexesArray();
   }
 
-  private fillStarsArray() {
+  private fillHexesArray() {
     this.hexes = new Array(this.amountOfHexes).fill(null);
     const listOfStellarNames = shuffleArray(stellarNames);
     for (let i = 0; i < this.amountOfHexes; i++) {
