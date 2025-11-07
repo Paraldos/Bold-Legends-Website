@@ -30,25 +30,29 @@ export default class SectorMap {
   private addHexes(): void {
     if (!this.map) return;
     for (let i = 0; i < this.sector.amountOfHexes; i++) {
-      const col = i % this.sector.columns;
-      const row = Math.floor(i / this.sector.columns);
+      this.addHex(i);
+    }
+  }
 
-      const hex = document.createElement("div");
-      hex.className = "sectorTools__hex";
-      hex.innerHTML = `
+  private addHex(i: number): void {
+    if (!this.map) return;
+
+    const col = i % this.sector.columns;
+    const row = Math.floor(i / this.sector.columns);
+    const isOddRow = row % 2 === 1;
+    const colStart = col * 2 + (isOddRow ? 1 : 0) + 1;
+    const rowStart = row * 3 + 1;
+
+    const hex = document.createElement("div");
+    hex.className = "sectorTools__hex";
+    hex.innerHTML = `
 	  	<p>${i}</p>
 		${this.sector.hexes[i].type == "star" ? SVG.star() : ""}
 		${this.sector.hexes[i].type == "blackHole" ? SVG.blackHole() : ""}
 		`;
+    hex.style.gridColumn = `${colStart} / span 2`;
+    hex.style.gridRow = `${rowStart} / span 4`;
 
-      const isOddRow = row % 2 === 1;
-      const colStart = col * 2 + (isOddRow ? 1 : 0) + 1;
-      const rowStart = row * 3 + 1;
-
-      hex.style.gridColumn = `${colStart} / span 2`;
-      hex.style.gridRow = `${rowStart} / span 4`;
-
-      this.map.appendChild(hex);
-    }
+    this.map.appendChild(hex);
   }
 }
