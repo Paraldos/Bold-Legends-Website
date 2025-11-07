@@ -1,8 +1,8 @@
 import "./sectorTool.css";
 import ContentComponent from "../contentComponent/contentComponent.ts";
 import Sector from "./sector/sector.ts";
-import SectorMap from "./sectorMap.ts";
-import MapLegend from "./mapLegend.ts";
+import Map from "./map.ts";
+import Legend from "./legend.ts";
 
 export default class SectorTool extends ContentComponent {
   sector = new Sector();
@@ -15,7 +15,7 @@ export default class SectorTool extends ContentComponent {
 
   fill() {
     this.contentContainer.innerHTML = `<div class="sectorTool"></div>`;
-    if (this.sector) new SectorMap(this.sector);
-    if (this.sector) new MapLegend(this.sector);
+    if (this.sector) new Map(this.sector);
+    if (this.sector) new Legend(this.sector);
   }
 }

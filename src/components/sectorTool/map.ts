@@ -1,9 +1,9 @@
 import SVG from "../../utils/svg.ts";
 import Sector from "./sector/sector.ts";
 import Hex from "./sector/hex.ts";
-import "./sectorMap.css";
+import "./map.css";
 
-export default class SectorMap {
+export default class Map {
   sectorTool = document.querySelector(".sectorTool") as HTMLElement | null;
   map: HTMLElement | null;
   sector: Sector;

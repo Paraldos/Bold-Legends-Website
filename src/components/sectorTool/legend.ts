@@ -2,9 +2,9 @@ import Sector from "./sector/sector.ts";
 import Hex from "./sector/hex.ts";
 import type World from "./sector/world.ts";
 import { toRoman, idToLabel } from "../../utils/utils.ts";
-import "./mapLegend.css";
+import "./legend.css";
 
-export default class MapLegend {
+export default class Legend {
   sectorTool = document.querySelector(".sectorTool") as HTMLElement | null;
   legend: HTMLElement | null;
   sector: Sector;
