@@ -12,7 +12,7 @@ export default class MapLegend {
     this.addHexes();
   }
 
-  initMapLegend(): HTMLElement | null {
+  private initMapLegend(): HTMLElement | null {
     if (!this.sectorTool) return null;
     const legend = document.createElement("div");
     legend.classList.add("sectorTools__legend");
@@ -20,17 +20,38 @@ export default class MapLegend {
     return legend;
   }
 
-  addHexes(): void {
+  private addHexes(): void {
     if (!this.legend) return;
     this.sector.hexes.forEach((hex, index) => this.addHex(hex, index));
   }
 
-  addHex(hex: HexData, index: number): void {
+  private addHex(hex: HexData, index: number): void {
     if (!this.legend) return;
+    const div = document.createElement("div");
+    div.className = "sectorTools__legendHex";
+    div.innerHTML = `
+	<div>
+		${this.getHexHeader(hex, index)}
+		${this.getHexBody(hex, index)}
+	</div>`;
+    this.legend?.appendChild(div);
+  }
 
-    const hexDiv = document.createElement("div");
-    hexDiv.innerHTML = `<p>${index}</p> <p>${hex.title}</p>`;
+  private getHexHeader(hex: HexData, index: number): string {
+    const div = document.createElement("div");
+    div.className = "sectorTools__legendHexHeader";
+    div.innerHTML =
+      hex.type === "empty"
+        ? `<p>${index}:</p>`
+        : `<p>${index}: ${hex.title} (${hex.type})</p>`;
+    return div.outerHTML;
+  }
 
-    this.legend?.appendChild(hexDiv);
+  private getHexBody(hex: HexData, index: number): string {
+    const div = document.createElement("div");
+    hex.worlds.forEach((world) => {
+      console.log(world);
+    });
+    return div.outerHTML;
   }
 }
