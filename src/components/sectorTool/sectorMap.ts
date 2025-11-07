@@ -45,7 +45,7 @@ export default class SectorMap {
     const rowStart = row * 3 + 1;
 
     const newDiv = document.createElement("div");
-    newDiv.className = "sectorTools__hex";
+    newDiv.className = "sectorTools__mapHex";
     newDiv.innerHTML = `
 		<p>${index}</p>
 		${hex.type === "star" ? SVG.star() : ""}
