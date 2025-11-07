@@ -25,10 +25,9 @@ export default class MapLegend {
 
   private addHexes(): void {
     this.sector.hexes.forEach((hex, index) => {
+      if (hex.type === "empty") return;
       const id = "sectorTools__legendHex__" + index;
       let classes = ["sectorTools__legendHex"];
-      if (hex.type === "empty") classes.push("sectorTools__legendHex--empty");
-
       this.legend!.innerHTML += `
 		<div id="${id}" class="${classes.join(" ")}">
 			${this.getHexHeader(hex, index)}

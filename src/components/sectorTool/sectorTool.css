@@ -1,9 +1,3 @@
 .sectorTool {
   min-height: 100%;
 }
-
-.sectorTools__map {
-  max-height: calc(100vh - var(--nav-total));
-  max-width: 100vw;
-  margin: auto;
-}

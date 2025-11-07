@@ -20,18 +20,26 @@ export default class Sector {
     const listOfStellarNames = shuffleArray(stellarNames);
 
     for (let i = 0; i < this.amountOfHexes; i++) {
-      const fieldTitle = listOfStellarNames[i] ?? `Hex ${i}`;
+      const fieldTitle = listOfStellarNames[i];
       let fieldType: HexType = "empty";
-
       if (i < this.amountOfBlackHoles) {
         fieldType = "blackHole";
       } else if (i < this.amountOfBlackHoles + this.amountOfStars) {
         fieldType = "star";
       }
-
       this.hexes[i] = new Hex(fieldTitle, fieldType);
     }
 
     this.hexes = shuffleArray(this.hexes);
+  }
+
+  static saveSector(sector: Sector, entry: number) {
+    const data = JSON.stringify(sector);
+    localStorage.setItem("sectorToolEntry_" + entry, data);
+  }
+
+  static loadSector(entry: number): Sector | null {
+    const data = localStorage.getItem("sectorToolEntry_" + entry);
+    return data ? (JSON.parse(data) as Sector) : null;
   }
 }
