@@ -1,6 +1,7 @@
 import Sector from "./sector.ts";
 import Hex from "./hex.ts";
 import type World from "./world.ts";
+import { toRoman, idToLabel } from "../../utils/utils.ts";
 
 export default class MapLegend {
   sectorTool = document.querySelector(".sectorTool") as HTMLElement | null;
@@ -33,12 +34,13 @@ export default class MapLegend {
   }
 
   private getHexHeader(hex: Hex, index: number): string {
-    if (hex.type === "empty") return `<p>${index}</p>`;
-    return `<p>${index}: ${hex.title} (${hex.type})</p>`;
+    const type = idToLabel(hex.type);
+    const title = type != "Empty" ? "/ " + hex.title : "";
+    return `<p class="sectorTools__legendHexHeader">${index} / ${type} ${title}</p>`;
   }
 
   private getHexBody(hex: Hex, _index: number): string {
-    if (hex.type !== "star") return `</div>`;
+    if (hex.type !== "star") return `<ul></ul>`;
     return `
 		<ul>
 			${hex.worlds
@@ -49,6 +51,6 @@ export default class MapLegend {
 
   private getWorld(world: World | null, hex: Hex, worldIndex: number): string {
     if (world === null) return "";
-    return `<li>${hex.title} ${worldIndex}</li>`;
+    return `<li>${hex.title} ${toRoman(worldIndex + 1)}</li>`;
   }
 }
