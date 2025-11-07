@@ -22,44 +22,33 @@ export default class MapLegend {
   }
 
   private addHexes(): void {
-    if (!this.legend) return;
-    this.sector.hexes.forEach((hex, index) => this.addHex(hex, index));
-  }
-
-  private addHex(hex: Hex, index: number): void {
-    if (!this.legend) return;
-    const div = document.createElement("div");
-    div.className = "sectorTools__legendHex";
-    div.innerHTML = `
-	<div>
-		${this.getHexHeader(hex, index)}
-		${this.getHexBody(hex, index)}
-	</div>`;
-    this.legend?.appendChild(div);
+    this.sector.hexes.forEach((hex, index) => {
+      this.legend!.innerHTML += `
+		<div class="sectorTools__legendHex">
+			${this.getHexHeader(hex, index)}
+			${this.getHexBody(hex, index)}
+		</div>
+	  `;
+    });
   }
 
   private getHexHeader(hex: Hex, index: number): string {
-    const div = document.createElement("div");
-    div.className = "sectorTools__legendHexHeader";
-    div.innerHTML =
-      hex.type === "empty"
-        ? `<p>${index}:</p>`
-        : `<p>${index}: ${hex.title} (${hex.type})</p>`;
-    return div.outerHTML;
+    if (hex.type === "empty") return `<p>${index}</p>`;
+    return `<p>${index}: ${hex.title} (${hex.type})</p>`;
   }
 
   private getHexBody(hex: Hex, _index: number): string {
-    const div = document.createElement("div");
-    if (hex.type == "empty") return div.outerHTML;
-    hex.worlds.forEach((world) => {
-      if (world == null) return;
-      this.getWorld(world);
-    });
-    return div.outerHTML;
+    if (hex.type !== "star") return `</div>`;
+    return `
+		<ul>
+			${hex.worlds
+        .map((world, worldIndex) => this.getWorld(world, hex, worldIndex))
+        .join("")}
+		</ul>`;
   }
 
-  private getWorld(world: World) {
-    const div = document.createElement("div");
-    return div;
+  private getWorld(world: World | null, hex: Hex, worldIndex: number): string {
+    if (world === null) return "";
+    return `<li>${hex.title} ${worldIndex}</li>`;
   }
 }
