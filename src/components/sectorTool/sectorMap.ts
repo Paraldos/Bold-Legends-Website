@@ -47,10 +47,10 @@ export default class SectorMap {
     const newDiv = document.createElement("div");
     newDiv.className = "sectorTools__hex";
     newDiv.innerHTML = `
-    <p>${index}</p>
-    ${hex.type === "star" ? SVG.star() : ""}
-    ${hex.type === "blackHole" ? SVG.blackHole() : ""}
-  `;
+		<p>${index}</p>
+		${hex.type === "star" ? SVG.star() : ""}
+		${hex.type === "blackHole" ? SVG.blackHole() : ""}
+	`;
     newDiv.style.gridColumn = `${colStart} / span 2`;
     newDiv.style.gridRow = `${rowStart} / span 4`;
 
