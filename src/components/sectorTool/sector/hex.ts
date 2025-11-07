@@ -20,7 +20,7 @@ export default class Hex {
     const numberOfWorlds = Math.round(Math.random() * 3);
     const worlds: (World | null)[] = new Array(9).fill(null);
     for (let i = 0; i < numberOfWorlds; i++) {
-      worlds[i] = World.generateWorld();
+      worlds[i] = new World();
     }
     return shuffleArray(worlds);
   }
