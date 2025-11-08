@@ -1,5 +1,6 @@
 import Sector from "./sector/sector.ts";
 import "./controls.css";
+import Modal from "../modal/modal.ts";
 
 export default class Controls {
   sectorTool = document.querySelector(".sectorTool") as HTMLElement | null;
@@ -17,6 +18,7 @@ export default class Controls {
     this.addSaveBtn(div);
     this.addLoadBtn(div);
     this.sectorTool?.appendChild(div);
+    new Modal();
   }
 
   addNewBtn(parent: HTMLElement) {
