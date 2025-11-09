@@ -2,17 +2,21 @@
   cursor: pointer;
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal__contentContainer {
   cursor: auto;
   position: relative;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50% -50%);
-  width: 100px;
-  height: 100px;
+  width: fit-content;
+  min-width: 100px;
+  height: fit-content;
+  min-height: 100px;
+  padding: 25px;
+
   border: 5px solid var(--text-primary);
   background-color: var(--bg-default);
 }
