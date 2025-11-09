@@ -1,9 +1,9 @@
 import "./sectorTool.css";
 import ContentComponent from "../contentComponent/contentComponent.ts";
 import Sector from "./sector/sector.ts";
-import Map from "./map.ts";
-import Legend from "./legend.ts";
-import Controls from "./controls.ts";
+import Map from "./map/map.ts";
+import Legend from "./legend/legend.ts";
+import Controls from "./controls/controls.ts";
 
 export default class SectorTool extends ContentComponent {
   sector = new Sector();

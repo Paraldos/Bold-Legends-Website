@@ -1,7 +1,7 @@
-import Sector from "./sector/sector.ts";
-import Hex from "./sector/hex.ts";
-import type World from "./sector/world.ts";
-import { toRoman, idToLabel } from "../../utils/utils.ts";
+import Sector from "../sector/sector.ts";
+import Hex from "../sector/hex.ts";
+import type World from "../sector/world.ts";
+import { toRoman, idToLabel } from "../../../utils/utils.ts";
 import "./legend.css";
 
 export default class Legend {

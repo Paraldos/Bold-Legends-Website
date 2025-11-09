@@ -1,6 +1,6 @@
-import SVG from "../../utils/svg.ts";
-import Sector from "./sector/sector.ts";
-import Hex from "./sector/hex.ts";
+import SVG from "../../../utils/svg.ts";
+import Sector from "../sector/sector.ts";
+import Hex from "../sector/hex.ts";
 import "./map.css";
 
 export default class Map {
