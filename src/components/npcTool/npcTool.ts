@@ -1,3 +1,7 @@
 export default class NPCTool {
-  constructor() {}
+  tags: String[] = [];
+
+  constructor() {
+    this.tags = [""];
+  }
 }
