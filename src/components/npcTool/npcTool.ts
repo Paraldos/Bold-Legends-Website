@@ -1,7 +1,10 @@
 export default class NPCTool {
-  tags: String[] = [];
+  age: String[] = [];
+  quirk: String[] = [];
+  goals: String[] = [];
+  detail: String[] = [];
 
   constructor() {
-    this.tags = [""];
+    this.age = [""];
   }
 }
