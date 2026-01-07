@@ -6,5 +6,10 @@ export default class NPCTool {
 
   constructor() {
     this.age = [""];
+    this.quirk = [""];
   }
+
+  addAge() {}
+
+  addQuirk() {}
 }
